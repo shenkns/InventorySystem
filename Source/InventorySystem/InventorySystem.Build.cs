@@ -32,5 +32,15 @@ public class InventorySystem : ModuleRules
 				"SaveLoadSystem"
 			}
 		);
+		
+		PrivateIncludePathModuleNames.AddRange(
+			new string[]
+			{
+				"LogSystem",
+				"DataSystem",
+				"SerializationSystem",
+				"SaveLoadSystem"		
+			}
+		);
 	}
 }
