@@ -1,0 +1,21 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "Inventory System",
+	"Description": "Inventory System Plugin",
+	"Category": "Meta",
+	"CreatedBy": "shenkns",
+	"EngineVersion": "5.1.0",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "InventorySystem",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	]
+}
