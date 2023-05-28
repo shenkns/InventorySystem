@@ -27,6 +27,7 @@ public class InventorySystem : ModuleRules
 				"CoreUObject",
 				"Engine",
 				"LogSystem",
+				"ManagersSystem",
 				"DataSystem",
 				"SerializationSystem",
 				"SaveLoadSystem"
@@ -37,6 +38,7 @@ public class InventorySystem : ModuleRules
 			new string[]
 			{
 				"LogSystem",
+				"ManagersSystem",
 				"DataSystem",
 				"SerializationSystem",
 				"SaveLoadSystem"		
