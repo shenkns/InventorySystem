@@ -2,9 +2,12 @@
 
 #include "Stats/StatInventory.h"
 
+#include "Log.h"
+#include "Log/Details/LocalLogCategory.h"
 #include "Managers/StatsManager.h"
-#include "Module/InventorySystemSettings.h"
 #include "Module/InventorySystemModule.h"
+
+DEFINE_LOG_CATEGORY_LOCAL(LogInventorySystem);
 
 bool UStatInventory::PreConvertToSaveData_Implementation()
 {
@@ -30,7 +33,7 @@ bool UStatInventory::AddItem(UInventoryItem* Item)
 	Item->Rename(nullptr, this);
 	Items.Add(Item);
 
-	DEBUG_MESSAGE(GetDefault<UInventorySystemSettings>()->bShowDebugMessages, LogInventorySystem, "%s Added To Inventory", *Item->GetName())
+	LOG(Display, "{} Added To Inventory", *Item->GetName());
 	
 	GetManager()->SaveStats();
 	OnItemAdded.Broadcast(Item);
@@ -57,7 +60,7 @@ bool UStatInventory::RemoveItem(UInventoryItem* Item)
 	// Try To Remove
 	if(Items.Remove(Item) > 0)
 	{
-		DEBUG_MESSAGE(GetDefault<UInventorySystemSettings>()->bShowDebugMessages, LogInventorySystem, "%s Removed From Inventory", *Item->GetName())
+		LOG(Display, "{} Removed From Inventory", *Item->GetName());
 		
 		GetManager()->SaveStats();
 		OnItemRemoved.Broadcast(Item);
@@ -76,7 +79,7 @@ bool UStatInventory::ClearItems()
 		if(!RemoveItem(Items[i])) AllRemoved = false;;
 	}
 
-	DEBUG_MESSAGE(GetDefault<UInventorySystemSettings>()->bShowDebugMessages, LogInventorySystem, "Inventory Items Cleared")
+	LOG(Display, "Inventory Items Cleared");
 
 	return AllRemoved;
 }
